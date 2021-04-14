@@ -58,7 +58,11 @@ if __name__ == '__main__':
     # Using Chrome to access web
     driver = setup_chrome()
     if word is not None:
-        print(format_transcription(get_transcription(driver, word)))
+        if len(word.split()) == 1:
+            print(format_transcription(get_transcription(driver, word)))
+        else:
+            for w in word.split():
+                print(format_transcription(get_transcription(driver, w)))
     elif input_filename is not None:
         dfs = pd.read_excel(input_filename, sheet_name = "Sheet1")
         for i in range(len(dfs)):
