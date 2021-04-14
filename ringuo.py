@@ -31,9 +31,9 @@ def get_transcription(driver, word):
 
 # Formats transcription from being bounded by \ to being bounded by \[\]
 def format_transcription(transcription):
-    transcription = transcription[1:-1]
-    transcription = '[' + transcription + ']'
-    return transcription
+    formated_transcription = transcription[1:-1]
+    formated_transcription = '[' + transcription + ']'
+    return formated_transcription
 
 # A function that does translation (doesn't work as expected sometimes)
 def translate_rus_to_eng(driver, word):
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     # Using Chrome to access web
     driver = setup_chrome()
     if word is not None:
-        print(get_transcription(driver, word))
+        print(format_transcription(get_transcription(driver, word)))
     elif input_filename is not None:
         dfs = pd.read_excel(input_filename, sheet_name = "Sheet1")
         for i in range(len(dfs)):
