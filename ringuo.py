@@ -32,7 +32,7 @@ def get_transcription(driver, word):
 # Formats transcription from being bounded by \ to being bounded by \[\]
 def format_transcription(transcription):
     formated_transcription = transcription[1:-1]
-    formated_transcription = '[' + transcription + ']'
+    formated_transcription = '[' + formated_transcription + ']'
     return formated_transcription
 
 # A function that does translation (doesn't work as expected sometimes)
