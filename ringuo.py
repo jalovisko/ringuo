@@ -2,6 +2,7 @@ import argparse
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import pyperclip
 
 # Sets up Chrome and returns its webdriver to be used by Selenium
 def setup_chrome():
@@ -59,7 +60,9 @@ if __name__ == '__main__':
     driver = setup_chrome()
     if word is not None:
         if len(word.split()) == 1:
-            print(format_transcription(get_transcription(driver, word)))
+            result = format_transcription(get_transcription(driver, word))
+            print(result)
+            pyperclip.copy(result)
         else:
             for w in word.split():
                 print(format_transcription(get_transcription(driver, w)))
